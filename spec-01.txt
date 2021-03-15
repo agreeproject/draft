@@ -1,0 +1,54 @@
+Actions are made based on universal informed consent of all visitors, which is
+measured and described in detail using records that represent proposals,
+reasons, and agreement.
+
+Users usually have optional identifiers (accounts).  Anonymous users are
+allowed as well, and all share a public account.
+
+Records are multilingual strings that reference other records via further
+records that describe how.  Users create records.  Records are public and
+cannot be deleted.  If records are mutable (optional), their history is public
+and immutable, and references are associated with the point in it when they
+were made.
+
+A user interface displays a record with an interface for users to add to it via
+new references to other, possibly-new records.  A database stores records in
+such a way that they are universally auditable and cannot be lost, such as on
+a blockchain.
+
+A front-end application will:
+    - connect with a public datastore of records
+    - display records to users via a public interface
+    - decide which records to show using fully user-transparent behavior
+
+A data backend application will:
+    - provide a public interface (API) allowing all visitors to access all data
+    - relate with immutable storage of records on for example a blockchain
+    - index records based on a reference identifier (unique number) that each record holds
+    - index short records based on their string content.
+    - index records based on the records which refer to them, providing for
+      tracing unidirectional references backward
+
+All records are signed by a user who created them:
+    - if the user has not identified, a shared private key for anonymous users is used.
+
+Because the system is not yet implemented, no further features are considered.
+There are only 2 application specifications.
+
+A record is:
+    - A universal id
+    - A user-provided timestamp
+    - string content
+    - a user signature on the string content, id, and timestamp
+    - an extendable list of references
+
+A reference is:
+    - A universal id
+    - A user-provided timestamp
+    - the record that the reference comes from, where it is listed
+    - the record identifying the nature of the reference
+    - the record the reference links to
+    - a user signature on the three records and their references, the id, and the timestamp
+
+Feel free to simplify/generalise/specialise it a little for implementation, or
+to add further features for security, transparency, utility.
